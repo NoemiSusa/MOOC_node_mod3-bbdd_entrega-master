@@ -31,7 +31,14 @@ module.exports = {
         authorId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        question: 'Capital of turki',
+        answer: 'Ankara',
+        authorId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ]);
   },
 

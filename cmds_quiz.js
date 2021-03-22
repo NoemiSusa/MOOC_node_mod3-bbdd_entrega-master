@@ -53,6 +53,19 @@ exports.test = async (rl) => {
     rl.log(`  The answer "${answered}" is wrong!`);
   }
 }
+ exports.play = async (rl) => {
+  let id = await rl.questionP("Enter quiz Id");
+  let quiz = await Quiz.findByPk(Number(id));
+  if (!quiz) throw new Error(`  Quiz '${id}' is not in DB`);
+
+  let answered = await rl.questionP(quiz.question);
+
+  if (answered.toLowerCase().trim()===quiz.answer.toLowerCase().trim()) {
+    rl.log(`  The answer "${answered}" is right!`);
+  } else {
+    rl.log(`  The answer "${answered}" is wrong!`);
+  }
+ }
 
 // Update quiz (identified by <id>) in the DB
 exports.update = async (rl) => {
